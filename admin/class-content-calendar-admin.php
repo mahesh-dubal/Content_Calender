@@ -102,4 +102,17 @@ class Content_Calendar_Admin
 		wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/content-calendar-admin.js', array('jquery'), $this->version, false);
 	}
 
+	//Function to register menu
+	public function register_my_content_calender()
+	{
+		add_menu_page(
+			__('My Content Calender'),
+			'Content Calender',
+			'manage_options',
+			'content-calender',
+			array($this, 'my_content_calender'),
+			'dashicons-calendar-alt',
+			10
+		);
+	}
 }
