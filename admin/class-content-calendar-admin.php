@@ -121,4 +121,42 @@ class Content_Calendar_Admin
 		my_form();
 		display_table();
 	}
+
+	//To save data after submit button clicked
+	public function form_data()
+	{
+		if (isset($_POST['submit'])) {
+			save_data();
+		}
+	}
+
+	function save_data()
+	{
+		$options = get_option('my_plugin_options', array());
+		if (!empty($options)) {
+			$options = maybe_unserialize($options);
+		}
+
+		$new_options = array(
+			'date' => $_POST['date'],
+			'occasion' => $_POST['occasion'],
+			'post_title' => $_POST['post-title'],
+			'author' => $_POST['author'],
+			'reviewer' => $_POST['reviewer'],
+		);
+
+		// Check if the same date and occasion already exist in the options table
+		foreach ($options as $option) {
+			if ($option['date'] === $_POST['date'] && $option['occasion'] === $_POST['occasion']) {
+				echo "<script>alert('On this date,same event already exists.');</script>";
+				return;
+			}
+		}
+
+		// Adding data into array
+		$options[] = $new_options;
+		$serialized_options = maybe_serialize($options);
+		update_option('my_plugin_options', $serialized_options);
+	}
+}
 }
