@@ -76,27 +76,4 @@ function my_form()
 }
 
 
-//To display data in table format
-function display_table()
-{
-    $calendar_data = get_option('my_plugin_options', array());
-   
-    $data_array = maybe_unserialize($calendar_data);
-    
-    echo '<table id="data_table">';
-    echo '<thead><tr><th>Date</th><th>Occasion</th><th>Post Title</th><th>Author</th><th>Reviewer</th></tr></thead>';
-    echo '<tbody>';
-
-    foreach ($data_array as $item_array) {
-        echo '<tr>';
-        echo '<td>' . date("d-m-Y", strtotime($item_array['date'])) . '</td>';
-        echo '<td>' . $item_array['occasion'] . '</td>';
-        echo '<td>' . $item_array['post_title'] . '</td>';
-        echo '<td>' . get_the_author_meta('display_name', $item_array['author']) . '</td>';
-        echo '<td>' . get_the_author_meta('display_name', $item_array['reviewer']) . '</td>';
-        echo '</tr>';
-    }
-
-    echo '</tbody></table>';
-}
 
