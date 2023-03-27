@@ -159,4 +159,4 @@ class Content_Calendar_Admin
 		update_option('my_plugin_options', $serialized_options);
 	}
 }
-}
+
