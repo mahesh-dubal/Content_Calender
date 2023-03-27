@@ -156,6 +156,10 @@ class Content_Calendar {
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
+
+		//To register nwe menu
+		$this->loader->add_action('admin_menu', $plugin_admin, 'register_my_content_calender');
+
 		
 
 	}
