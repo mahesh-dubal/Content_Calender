@@ -54,6 +54,9 @@ class Content_Calendar_Admin
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
 
+		//To use functions inside partials/content-calendar-admin-display.php
+		require_once(dirname(__FILE__) . '/partials/content-calendar-admin-display.php');
+
 	}
 
 	/**
