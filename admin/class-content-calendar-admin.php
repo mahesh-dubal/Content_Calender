@@ -115,4 +115,10 @@ class Content_Calendar_Admin
 			10
 		);
 	}
+
+	public function my_content_calender()
+	{
+		my_form();
+		display_table();
+	}
 }
