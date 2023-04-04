@@ -129,7 +129,7 @@ class Content_Calendar_Admin
 	public function form_data()
 	{
 		if (isset($_POST['submit'])) {
-			save_data();
+			$this->save_data();
 		}
 	}
 
